@@ -14,5 +14,5 @@ def data_get():
 
 @app.post("/createposts")
 def create_post(payload:dict=Body()):#get the body and convert to a dictionery named payload
-    print(payload)
-    return{"message":"successfully poseted!"}
+    
+    return{"new_post":f"title {payload['title']} content: {payload['content']}"}
