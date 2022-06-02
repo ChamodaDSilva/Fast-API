@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.params import Body
 
 app=FastAPI()
 
@@ -12,5 +13,6 @@ def data_get():
     return{"data":"chamoda de silva"}
 
 @app.post("/createposts")
-def create_post():
+def create_post(payload:dict=Body()):#get the body and convert to a dictionery named payload
+    print(payload)
     return{"message":"successfully poseted!"}
