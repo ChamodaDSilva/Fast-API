@@ -8,6 +8,7 @@ class Post(BaseModel):
     title:str
     content:str
     published:bool=True#if client send this its taken, otherwise get the default
+    rating:int =0
 
 @app.get("/")
 def root():
@@ -21,6 +22,6 @@ def data_get():
 @app.post("/createposts")
 def create_post(new_post:Post):
     print(new_post)
-    return{"new_post":f"title {new_post.title} content: {new_post.content}"}
+    return{"data":new_post.dict()}#convert to dictionary
 
 
